@@ -78,7 +78,7 @@ def main():
     # if no organization is provided print list of organizations
     if not args.organization:
         print("\nORGANIZATIONS AVAILABLE\n")
-        for org in orgs:
+        for org in sorted(orgs, key=lambda i: (i["name"])):
             print(f"NAME: {org.get('name'):40} ID: {org.get('id'):20}")
         sys.exit()
 
