@@ -27,10 +27,10 @@ def printNei(apikey,networkid,serial,name,protocol):
             ip = nei.get("address",nei.get("managementAddress"))
             if proto == 'cdp' and protocol != 'lldp':
                 systemName = nei.get('deviceId',"noname")
-                print(f'{proto.upper():4} LOCAL {name[:24]:24} SOURCE-PORT {nei.get("sourcePort"):8} REMOTE DEVICE {systemName.split(".")[0][:40]:40} REMOTE PORT {nei.get("portId"):24} REMOTE IP {ip}')
+                print(f'{proto.upper():4} SERIAL {serial[:15]:15} LOCAL {name[:24]:24} SOURCE-PORT {nei.get("sourcePort"):8} REMOTE DEVICE {systemName.split(".")[0][:40]:40} REMOTE PORT {nei.get("portId"):24} REMOTE IP {ip}')
             elif proto == 'lldp' and protocol != 'cdp':
                 systemName = nei.get('systemName',"noname")
-                print(f'{proto.upper():4} LOCAL {name[:24]:24} SOURCE-PORT {nei.get("sourcePort"):8} REMOTE DEVICE {systemName.split(".")[0][:40]:40} REMOTE PORT {nei.get("portId"):24} REMOTE IP {ip}')
+                print(f'{proto.upper():4} SERIAL {serial[:15]:15} LOCAL {name[:24]:24} SOURCE-PORT {nei.get("sourcePort"):8} REMOTE DEVICE {systemName.split(".")[0][:40]:40} REMOTE PORT {nei.get("portId"):24} REMOTE IP {ip}')
 
 def getIdName(objectId,objectList):
     '''
